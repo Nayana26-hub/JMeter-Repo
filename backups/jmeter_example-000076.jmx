@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Example Load Test">
+      <stringProp name="TestPlan.comments">This is a browser-based web application load testing.</stringProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables - Application" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="URL" elementType="Argument">
+            <stringProp name="Argument.name">URL</stringProp>
+            <stringProp name="Argument.value">https://the-internet.herokuapp.com/login</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="APP_USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">APP_USERNAME</stringProp>
+            <stringProp name="Argument.value">tomsmith</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="APP_PASSWORD" elementType="Argument">
+            <stringProp name="Argument.name">APP_PASSWORD</stringProp>
+            <stringProp name="Argument.value">SuperSecretPassword!</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables - General" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="SCREENSHOT_LOCATION" elementType="Argument">
+            <stringProp name="Argument.name">SCREENSHOT_LOCATION</stringProp>
+            <stringProp name="Argument.value">C:\Users\NayanaB\OneDrive - IBM\Documents\Screenshot</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Specify the location of screenshots</stringProp>
+          </elementProp>
+          <elementProp name="WAIT_TIME" elementType="Argument">
+            <stringProp name="Argument.name">WAIT_TIME</stringProp>
+            <stringProp name="Argument.value">10</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The maximum page element wait time</stringProp>
+          </elementProp>
+          <elementProp name="SLEEP_TIME" elementType="Argument">
+            <stringProp name="Argument.name">SLEEP_TIME</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The maximum random wait time within the sampler</stringProp>
+          </elementProp>
+          <elementProp name="MAXIMUM_DELAY_TIME" elementType="Argument">
+            <stringProp name="Argument.name">MAXIMUM_DELAY_TIME</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The maximum user pause time between each sampler</stringProp>
+          </elementProp>
+          <elementProp name="CONSTANT_DELAY_TIME" elementType="Argument">
+            <stringProp name="Argument.name">CONSTANT_DELAY_TIME</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The constant user pause time between each sampler</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">./</stringProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables - Browser Driver" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="SELENIUM_GRID_HOST" elementType="Argument">
+            <stringProp name="Argument.name">SELENIUM_GRID_HOST</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CHROME_DRIVER_LOCATION" elementType="Argument">
+            <stringProp name="Argument.name">CHROME_DRIVER_LOCATION</stringProp>
+            <stringProp name="Argument.value">C:\apache-jmeter-5.6.3\Webdrivers\chromedriver-win64\chromedriver.exe</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">ONLY for Chrome Driver Config in Windows</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">C:/selenium/webdrivers/chromedriver.exe </stringProp>
+      </Arguments>
+      <hashTree/>
+      <com.googlecode.jmeter.plugins.webdriver.config.RemoteDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.RemoteDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.RemoteDriverConfig" testname="jp@gc - Remote Driver Config" enabled="false">
+        <stringProp name="RemoteDriverConfig.general.selenium.grid.url">http://${SELENIUM_GRID_HOST}:4444/wd/hub</stringProp>
+        <stringProp name="RemoteDriverConfig.general.selenium.capability">CHROME</stringProp>
+        <boolProp name="RemoteDriverConfig.general.selenium.file.detector">true</boolProp>
+        <boolProp name="WebDriverConfig.acceptinsecurecerts">true</boolProp>
+        <boolProp name="WebDriverConfig.reset_per_iteration">true</boolProp>
+        <boolProp name="WebDriverConfig.headless">false</boolProp>
+        <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+        <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+        <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+        <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+        <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+        <boolProp name="FirefoxDriverConfig.general.useragent.override.enabled">false</boolProp>
+        <boolProp name="FirefoxDriverConfig.network.negotiate-auth.allow-insecure-ntlm-v1">false</boolProp>
+        <collectionProp name="FirefoxDriverConfig.general.extensions"/>
+        <collectionProp name="FirefoxDriverConfig.general.preferences"/>
+        <intProp name="InternetExplorerDriverConfig.file_upload_dialog_timeout">0</intProp>
+        <boolProp name="InternetExplorerDriverConfig.ensure_clean_session">false</boolProp>
+        <boolProp name="InternetExplorerDriverConfig.ignore_protected_mode">false</boolProp>
+        <boolProp name="InternetExplorerDriverConfig.silent">false</boolProp>
+        <stringProp name="InternetExplorerDriverConfig.initial_browser_url"></stringProp>
+        <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+        <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+        <stringProp name="WebDriverConfig.http_host"></stringProp>
+        <intProp name="WebDriverConfig.http_port">0</intProp>
+        <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+        <stringProp name="WebDriverConfig.https_host"></stringProp>
+        <intProp name="WebDriverConfig.https_port">0</intProp>
+        <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+        <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+        <intProp name="WebDriverConfig.ftp_port">0</intProp>
+        <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+        <stringProp name="WebDriverConfig.socks_host"></stringProp>
+        <intProp name="WebDriverConfig.socks_port">0</intProp>
+        <stringProp name="WebDriverConfig.no_proxy"></stringProp>
+        <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+        <stringProp name="TestPlan.comments">http://${SELENIUM_GRID_HOST}:4444/wd/hub</stringProp>
+      </com.googlecode.jmeter.plugins.webdriver.config.RemoteDriverConfig>
+      <hashTree/>
+      <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config" enabled="false">
+        <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+        <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+        <stringProp name="WebDriverConfig.http_host"></stringProp>
+        <intProp name="WebDriverConfig.http_port">8080</intProp>
+        <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+        <stringProp name="WebDriverConfig.https_host"></stringProp>
+        <intProp name="WebDriverConfig.https_port">8080</intProp>
+        <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+        <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+        <stringProp name="WebDriverConfig.socks_host"></stringProp>
+        <intProp name="WebDriverConfig.socks_port">8080</intProp>
+        <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+        <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+        <boolProp name="WebDriverConfig.reset_per_iteration">true</boolProp>
+        <boolProp name="WebDriverConfig.dev_mode">true</boolProp>
+        <stringProp name="ChromeDriverConfig.chromedriver_path">${CHROME_DRIVER_LOCATION}</stringProp>
+        <boolProp name="ChromeDriverConfig.android_enabled">false</boolProp>
+        <boolProp name="ChromeDriverConfig.headless_enabled">false</boolProp>
+        <boolProp name="ChromeDriverConfig.insecurecerts_enabled">false</boolProp>
+        <boolProp name="WebDriverConfig.acceptinsecurecerts">true</boolProp>
+        <stringProp name="WebDriverConfig.driver_path">${CHROME_DRIVER_LOCATION}</stringProp>
+        <boolProp name="WebDriverConfig.headless">false</boolProp>
+        <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+        <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+        <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+        <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+        <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+      </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables - Page Elements" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="ELEMENT_TEXT_USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">ELEMENT_TEXT_USERNAME</stringProp>
+            <stringProp name="Argument.value">pkg.By.id(&quot;username&quot;)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELEMENT_TEXT_PASSWORD" elementType="Argument">
+            <stringProp name="Argument.name">ELEMENT_TEXT_PASSWORD</stringProp>
+            <stringProp name="Argument.value">pkg.By.id(&quot;password&quot;)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELEMENT_BUTTON_LOGIN" elementType="Argument">
+            <stringProp name="Argument.name">ELEMENT_BUTTON_LOGIN</stringProp>
+            <stringProp name="Argument.value">pkg.By.cssSelector(&quot;button[class=&apos;radius&apos;]&quot;)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELEMENT_LINK_LOGOUT" elementType="Argument">
+            <stringProp name="Argument.name">ELEMENT_LINK_LOGOUT</stringProp>
+            <stringProp name="Argument.value">pkg.By.cssSelector(&quot;a[class=&apos;button secondary radius&apos;]&quot;)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <longProp name="ThreadGroup.duration">30</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Delay Timer Random" enabled="true">
+          <stringProp name="ConstantTimer.delay">${CONSTANT_DELAY_TIME}</stringProp>
+          <stringProp name="RandomTimer.range">${MAXIMUM_DELAY_TIME}</stringProp>
+          <stringProp name="TestPlan.comments">To allow random pausing between each request to simulate real-life user behaviour</stringProp>
+        </UniformRandomTimer>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">image/gif, image/jpeg, image/pjpeg, application/x-ms-application, application/xaml+xml, application/x-ms-xbap, */*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">en-MY</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login" enabled="false">
+          <stringProp name="WebDriverSampler.script">WDS.sampleResult.sampleStart()
+ try{ 
+    WDS.browser.get(&quot;${URL}&quot;);
+
+    var pkg = JavaImporter(org.openqa.selenium);
+    var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait);
+    var ui = JavaImporter(org.openqa.selenium.support.ui);
+    var wait = new support_ui.WebDriverWait(WDS.browser, ${WAIT_TIME});
+    var exception = null;
+
+    var fileUtils = JavaImporter(org.apache.commons.io);
+    var io = JavaImporter(java.io);
+    var location = &quot;${SCREENSHOT_LOCATION}/&quot; //&apos;C:/selenium/webdrivers/&apos;;
+    var screenshot = WDS.browser.getScreenshotAs(pkg.OutputType.FILE);
+
+    // To maxmize the browser window that&apos;s needed when using remote driver config
+    WDS.browser.manage().window().setSize(new pkg.Dimension(1920, 1080));  
+		
+    wait.until(ui.ExpectedConditions.visibilityOfElementLocated(${ELEMENT_TEXT_USERNAME}));
+    WDS.browser.findElement(${ELEMENT_TEXT_USERNAME}).click();
+    WDS.browser.findElement(${ELEMENT_TEXT_USERNAME}).sendKeys(&quot;${APP_USERNAME}&quot;);
+    
+    wait.until(ui.ExpectedConditions.visibilityOfElementLocated(${ELEMENT_TEXT_PASSWORD}));
+    WDS.browser.findElement(${ELEMENT_TEXT_PASSWORD}).click();
+    WDS.browser.findElement(${ELEMENT_TEXT_PASSWORD}).sendKeys(&quot;${APP_PASSWORD}&quot;);	
+    
+    wait.until(ui.ExpectedConditions.visibilityOfElementLocated(${ELEMENT_BUTTON_LOGIN}));
+    WDS.browser.findElement(${ELEMENT_BUTTON_LOGIN}).click();   
+    WDS.log.info(&quot;${CURRENT_TIME}:You&apos;ve clicked on login button.&quot;);
+    
+    wait.until(ui.ExpectedConditions.visibilityOfElementLocated(${ELEMENT_LINK_LOGOUT}));
+    WDS.log.info(&quot;${CURRENT_TIME}:You&apos;ve sucessfully logged in button.&quot;);
+    
+    WDS.log.info(&quot;${__samplerName()}-${__threadNum}.Randomly sleep for ${SLEEP_TIME_RANDOM} miliseconds&quot;);
+    java.lang.Thread.sleep(&quot;${SLEEP_TIME_RANDOM}&quot;);
+            
+} catch(err){
+   WDS.log.error(&quot;${CURRENT_TIME}: &quot;+err.message);   
+   fileUtils.FileUtils.copyFile(screenshot, new io.File(location+&quot;screenshot-${CURRENT_TIME}-${__samplerName()}.png&quot;));
+   exception = err;
+} finally {
+    if (exception != null){
+    	throw (exception);
+    }
+}
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script"> import java.text.SimpleDateFormat
+ 
+ // For Windows, need to convert backslash to forward slash
+ ${__groovy(vars.put(&apos;SCREENSHOT_LOCATION&apos;\,vars.get(&apos;SCREENSHOT_LOCATION&apos;).replace(&apos;\\\&apos;\, &apos;/&apos;)),)}
+ 
+String location = vars.get(&apos;SCREENSHOT_LOCATION&apos;)
+//log.info (&quot;SCREENSHOT_LOCATION:&quot;+location);
+
+// Generate uniqte id for screenshot naming based on date time and iteration number
+Date date = new Date()
+String dateTime = date.format(&quot;yyyyMMddHHmmss&quot;)
+String threadNumber = ${__threadNum}
+String iteration = vars.getIteration()
+
+String currentTime = threadNumber+&quot;-&quot;+iteration+&quot;-&quot;+dateTime
+//log.info (&quot;SCREENSHOT SUFFIX: &quot;+currentTime);
+
+// Set the variable value to be used for screenshot naming
+vars.put(&quot;CURRENT_TIME&quot;, currentTime)
+
+//log.info (&quot;SCREENSHOT MAXIMUM_DELAY_TIME: &quot;+${MAXIMUM_DELAY_TIME});
+// Set random sleep timer for each request that use this variable
+String randomSleepTime = ${__Random(1000,${MAXIMUM_DELAY_TIME})}
+vars.put(&quot;SLEEP_TIME_RANDOM&quot;, randomSleepTime)
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Logout" enabled="false">
+          <stringProp name="WebDriverSampler.script">WDS.sampleResult.sampleStart()
+try {
+    var pkg = JavaImporter(org.openqa.selenium);
+    var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait);
+    var ui = JavaImporter(org.openqa.selenium.support.ui);
+    var wait = new support_ui.WebDriverWait(WDS.browser, ${WAIT_TIME});
+    var exception = null;
+
+    var fileUtils = JavaImporter(org.apache.commons.io);
+    var io = JavaImporter(java.io);
+    var location = &quot;${SCREENSHOT_LOCATION}/&quot; //&apos;C:/selenium/webdrivers/&apos;;
+    var screenshot = WDS.browser.getScreenshotAs(pkg.OutputType.FILE);
+
+    // Click on Logout
+    wait.until(ui.ExpectedConditions.visibilityOfElementLocated(${ELEMENT_LINK_LOGOUT}));
+    WDS.browser.findElement(${ELEMENT_LINK_LOGOUT}).click();  
+
+    // Wait until successfully logged out
+    wait.until(ui.ExpectedConditions.visibilityOfElementLocated(${ELEMENT_BUTTON_LOGIN}));
+
+    WDS.log.info(&quot;${__samplerName()}-${__threadNum}.Randomly sleep for ${SLEEP_TIME_RANDOM} miliseconds&quot;);
+    java.lang.Thread.sleep(&quot;${SLEEP_TIME_RANDOM}&quot;);
+    
+} catch(err){
+   WDS.log.error(&quot;${CURRENT_TIME}: &quot;+err.message);   
+   fileUtils.FileUtils.copyFile(screenshot, new io.File(location+&quot;screenshot-${CURRENT_TIME}-${__samplerName()}.png&quot;));
+   exception = err;
+} finally {
+    if (exception != null){
+    	throw (exception);
+    }
+}
+
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config">
+          <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+          <stringProp name="WebDriverConfig.driver_path">C:\Users\NayanaB\OneDrive - IBM\Documents\chrome-win64\chrome.exe</stringProp>
+          <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+          <boolProp name="WebDriverConfig.headless">false</boolProp>
+          <boolProp name="WebDriverConfig.maximize_browser">false</boolProp>
+          <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+          <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          <stringProp name="TestPlan.comments">C:\Users\NayanaB\OneDrive - IBM\Documents\chrome-win64\chrome.exe   C:\Webdrivers\chromedriver-win64\chromedriver.exe</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
+
+// Set ChromeDriver executable path
+System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;C:\\Webdrivers\\chromedriver-win64\\chromedriver.exe&quot;)
+
+// Set Chrome binary path
+ChromeOptions options = new ChromeOptions()
+options.setBinary(&quot;C:\\Users\\NayanaB\\OneDrive - IBM\\Documents\\chrome-win64\\chrome.exe&quot;)
+
+// Initialize WebDriver
+//WebDriver driver = new ChromeDriver()
+WebDriver driver = new ChromeDriver(options)
+
+// Start the sample result timing
+WDS.sampleResult.sampleStart();
+
+try {
+    // Open Google homepage
+    driver.get(&quot;https://google.com&quot;);
+
+    // Log the title of the homepage
+    String homepageTitle = driver.getTitle();
+    WDS.log.info(&quot;Homepage title is: &quot; + homepageTitle);
+
+    // Find the search box using its name attribute
+    WebElement searchBox = driver.findElement(By.name(&quot;q&quot;));
+
+    // Type the search term
+    String searchTerm = &quot;JMeter WebDriver tutorial&quot;;
+    searchBox.sendKeys(searchTerm);
+    WDS.log.info(&quot;Searched for: &quot; + searchTerm);
+
+    // Submit the search form
+    searchBox.submit();
+
+    // Wait for the results to load (you may use WebDriverWait for more reliability)
+    Thread.sleep(5000); // Sleep for 5 seconds
+2024-10-30 16:17:30,571 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2024-10-30 16:17:30,571 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2024-10-30 16:17:30,571 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2024-10-30 16:17:30,619 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2024-10-30 16:17:30,619 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2024-10-30 16:17:30,619 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2024-10-30 16:17:30,619 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2024-10-30 16:17:30,619 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2024-10-30 16:17:30,619 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2024-10-30 16:17:30,619 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2024-10-30 16:17:50,709 ERROR o.a.j.t.JMeterThread: Error calling threadStarted
+org.openqa.selenium.WebDriverException: Timed out waiting for driver server to start.
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.2.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:248) ~[selenium-remote-driver-4.13.0.jar:?]
+	at com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig.getThreadService(ChromeDriverConfig.java:47) ~[jmeter-plugins-webdriver-4.13.0.2.jar:?]
+	at com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig.createBrowser(ChromeDriverConfig.java:26) ~[jmeter-plugins-webdriver-4.13.0.2.jar:?]
+	at com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig.createBrowser(ChromeDriverConfig.java:14) ~[jmeter-plugins-webdriver-4.13.0.2.jar:?]
+	at com.googlecode.jmeter.plugins.webdriver.config.WebDriverConfig.getPreparedBrowser(WebDriverConfig.java:223) ~[jmeter-plugins-webdriver-4.13.0.2.jar:?]
+	at com.googlecode.jmeter.plugins.webdriver.config.WebDriverConfig.threadStarted(WebDriverConfig.java:154) ~[jmeter-plugins-webdriver-4.13.0.2.jar:?]
+	at org.apache.jmeter.threads.JMeterThread$ThreadListenerTraverser.addNode(JMeterThread.java:802) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jorphan.collections.HashTree.traverseInto(HashTree.java:1029) [jorphan.jar:5.6.3]
+	at org.apache.jorphan.collections.HashTree.traverse(HashTree.java:1012) [jorphan.jar:5.6.3]
+	at org.apache.jmeter.threads.JMeterThread.threadStarted(JMeterThread.java:770) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.threads.JMeterThread.initRun(JMeterThread.java:758) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:264) [ApacheJMeter_core.jar:5.6.3]
+	at java.base/java.lang.Thread.run(Thread.java:833) [?:?]
+Caused by: java.util.concurrent.ExecutionException: org.openqa.selenium.WebDriverException: Timed out waiting for driver server to start.
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.2.1&apos;
+Driver info: driver.version: unknown
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096) ~[?:?]
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:236) ~[selenium-remote-driver-4.13.0.jar:?]
+	... 12 more
+Caused by: org.openqa.selenium.WebDriverException: Timed out waiting for driver server to start.
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.2.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:269) ~[selenium-remote-driver-4.13.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverService.lambda$start$1(DriverService.java:215) ~[selenium-remote-driver-4.13.0.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	... 1 more
+Caused by: org.openqa.selenium.net.UrlChecker$TimeoutException: Timed out waiting for [http://localhost:44726/status] to be available after 20031 ms
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:94) ~[selenium-api-4.13.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:265) ~[selenium-remote-driver-4.13.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverService.lambd
+    // Log the title of the search results page
+    String resultsTitle = driver.getTitle();
+    WDS.log.info(&quot;Search results title is: &quot; + resultsTitle);
+} catch (Exception e) {
+    WDS.log.error(&quot;An error occurred: &quot; + e.getMessage());
+} finally {
+    // Close the browser
+    driver.quit();
+
+    // End the sample result timing
+    WDS.sampleResult.sampleEnd();
+}</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

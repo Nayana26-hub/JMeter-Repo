@@ -1,0 +1,21 @@
+2024-11-04 11:48:45,165 INFO o.a.j.u.JMeterUtils: Setting Locale to en_IN
+2024-11-04 11:48:45,212 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2024-11-04 11:48:45,244 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: Version 5.6.3
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: java.version=18.0.2.1
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: os.name=Windows 11
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: os.arch=amd64
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: os.version=10.0
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: file.encoding=UTF-8
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: java.awt.headless=null
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: Max memory     =4129292288
+2024-11-04 11:48:45,245 INFO o.a.j.JMeter: Available Processors =12
+2024-11-04 11:48:45,259 INFO o.a.j.JMeter: Default Locale=English (India)
+2024-11-04 11:48:45,259 INFO o.a.j.JMeter: JMeter  Locale=English (India)
+2024-11-04 11:48:45,259 INFO o.a.j.JMeter: JMeterHome=C:\apache-jmeter-5.6.3
+2024-11-04 11:48:45,259 INFO o.a.j.JMeter: user.dir  =C:\apache-jmeter-5.6.3\bin
+2024-11-04 11:48:45,275 INFO o.a.j.JMeter: PWD       =C:\apache-jmeter-5.6.3\bin
+2024-11-04 11:48:45,291 INFO o.a.j.JMeter: IP: 192.168.0.103 Name: IBM-GYDVJ34 FullName: IBM-GYDVJ34
+2024-11-04 11:48:45,306 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
